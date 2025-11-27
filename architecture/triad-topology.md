@@ -1,19 +1,22 @@
-# Triad Topology
+# Triad Topology (The Memory Graph)
 
-Triad Topology is the core graph structure of the Intent Memory Engine.
+**Triad Topology** is the fundamental data structure of the Intent Memory Engine.
 
-Instead of storing an intent as a single text node, IntentHub represents it as a **triangle** of three related nodes:
+Instead of storing an intent as a flat text record (like traditional RAG), IntentHub preserves an "atomic episode of reality" as a tightly coupled triangle (graph). This allows the system to navigate not just by semantic similarity (Vector Search) but also by causal relationships (Graph Traversal).
 
-- **Task** – what action was requested or performed.
-- **Context** – under which conditions, constraints, or environment the task was handled.
-- **Outcome** – what actually happened: result, artifact, error pattern, or side-effect.
+## 1. The Triad Structure
 
-Each **Triad** captures one “episode of intent in the world”.  
-The memory graph is then built from many interconnected triads, linked by:
+When ingested, every Intent is expanded into three distinct nodes:
 
-- similarity (Task ↔ Task),
-- shared resources or entities (Context ↔ Context),
-- reused results or failures (Outcome ↔ Outcome).
+```mermaid
+graph TD
+    T[Task Node] <-->|w=1.0| C[Context Node]
+    T[Task Node] <-->|w=1.0| O[Outcome Node]
+    C[Context Node] <-->|w=1.0| O[Outcome Node]
+```
 
-This topology makes retrieval and learning more robust than plain text logs:  
-we can search by *what*, *where/when/how*, or *what happened next* — or any combination.
+Where:
+
+- **Task Node** – what action was requested or performed.
+- **Context Node** – under which conditions, constraints, or environment the task was handled.
+- **Outcome Node** – what actually happened: result, artifact, error pattern, or side-effect.
