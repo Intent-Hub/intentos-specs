@@ -1,5 +1,13 @@
 # IntentHub / IntentOS Specifications
 
+## License
+
+Documentation is licensed under **CC BY 4.0**.  
+You are free to use, modify, and redistribute it with attribution.
+
+[![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+
 **IntentHub** is the conceptual framework for intent-driven AI systems.  
 **IntentOS** is the operational runtime that implements these concepts.
 
