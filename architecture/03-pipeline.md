@@ -1,0 +1,3 @@
+# Pipeline
+
+<!-- Intent -> Template -> Playbook -->
