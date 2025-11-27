@@ -1,7 +1,13 @@
 # Intent Pipeline
 
-```
-Raw Signal → Intent → Template → Playbook → Execution → Feedback → Update
-```
+All IntentHub-aligned systems follow the same high-level pipeline:
 
-This pipeline is universal across the ecosystem.
+```text
+Raw Signal
+  → Preprocess
+  → Intent Detection
+  → Template Selection
+  → Playbook Execution
+  → Result (action/data/insight)
+  → Feedback
+  → Update
